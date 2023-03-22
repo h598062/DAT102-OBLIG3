@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Oppg1/Oppg1.iml" filepath="$PROJECT_DIR$/Oppg1/Oppg1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppg2/Oppg2.iml" filepath="$PROJECT_DIR$/Oppg2/Oppg2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppg3/Oppg3.iml" filepath="$PROJECT_DIR$/Oppg3/Oppg3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppg4/Oppg4.iml" filepath="$PROJECT_DIR$/Oppg4/Oppg4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppg5/Oppg5.iml" filepath="$PROJECT_DIR$/Oppg5/Oppg5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oppg6/Oppg6.iml" filepath="$PROJECT_DIR$/Oppg6/Oppg6.iml" />
+    </modules>
+  </component>
+</project>
