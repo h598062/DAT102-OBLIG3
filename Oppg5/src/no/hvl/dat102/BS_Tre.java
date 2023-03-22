@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 /**
  * En datatype som lagrer data i form av et BinærTre
+ *
  * @param <T> Elementtypen som binærtreet holder
  */
 public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface<T> {
@@ -12,14 +13,15 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 	 * Roten til binærtreet
 	 */
 	private BinaerTreNode<T> rot;
-	// Kunne hatt med
-	// private int antall;
+
+	private int antall;
 
 	/**
 	 * Lager et nytt tomt binærtre
 	 */
 	public BS_Tre() {
-		rot = null;
+		rot    = null;
+		antall = 0;
 	}
 
 	/**
@@ -28,23 +30,21 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 	 * @param element Element som skal bli rot
 	 */
 	public BS_Tre(T element) {
-		rot = new BinaerTreNode<>(element);
+		rot    = new BinaerTreNode<>(element);
+		antall = 1;
 	}
 
 	/**
-	 * Finner høyden til binærtreet<br>
-	 * TODO: Funker ikke skikkelig atm
+	 * Finner høyden til binærtreet
 	 *
 	 * @return Integer verdi av høyden til binærtreet
 	 */
 	public int finnHoyde() {
-		int              sum  = -1;
 		BinaerTreNode<T> node = rot;
 		if (node == null) {
-			return sum;
+			return -1;
 		}
-		sum += finnHoyde(node);
-		return sum;
+		return finnHoyde(node, 0);
 	}
 
 	/**
@@ -54,30 +54,16 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 	 *
 	 * @return Integer verdi av høyden
 	 */
-	private int finnHoyde(BinaerTreNode<T> node) {
+	private int finnHoyde(BinaerTreNode<T> node, int nivaa) {
 		if (node == null) {
-			return 0;
+			return nivaa - 1;
 		}
-		int              sum      = 1;
-		BinaerTreNode<T> v        = node.getVenstre();
-		boolean          fantbarn = false;
-		int              vh       = 0;
-		int              hh       = 0;
-		if (v != null) {
-			vh       = finnHoyde(v);
-			fantbarn = true;
-		}
+		nivaa++;
 
-		BinaerTreNode<T> h = node.getHogre();
-		if (h != null) {
-			hh       = finnHoyde(h);
-			fantbarn = true;
-		}
-		if (fantbarn) {
-			sum += Math.max(vh, hh);
-		}
+		int vh = finnHoyde(node.getVenstre(), nivaa);
+		int hh = finnHoyde(node.getHogre(), nivaa);
 
-		return sum;
+		return Math.max(vh, hh);
 	}
 
 	/**
@@ -142,6 +128,7 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 		} else {
 			resultat = leggTil(nyElement, rot);
 		}
+		antall++;
 		return resultat;
 	}
 
@@ -196,4 +183,12 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 		return null;
 	}
 
+	/**
+	 * Returnerer hvor mange noder som finnes i BinærTreet
+	 *
+	 * @return integer antall elementer i BinærTreet
+	 */
+	public int getAntall() {
+		return antall;
+	}
 }
