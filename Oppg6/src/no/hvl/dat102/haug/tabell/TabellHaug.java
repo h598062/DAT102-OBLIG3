@@ -65,7 +65,7 @@ public class TabellHaug<T extends Comparable<T>> {
 		int     minbarn;
 		int     vbarn    = forelder * 2 + 1;
 		int     hbarn    = vbarn + 1;
-		while ((vbarn < antall) && !ferdig) { // Har flere noder lenger nede
+		while (!ferdig && vbarn < antall) { // Har flere noder lenger nede
 			minbarn = vbarn;
 
 			if ((hbarn < antall) && ((data[hbarn]).compareTo(data[vbarn]) < 0)) {
