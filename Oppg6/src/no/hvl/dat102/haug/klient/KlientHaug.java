@@ -5,12 +5,13 @@ import no.hvl.dat102.haug.tabell.*;
 public class KlientHaug {
 	public static void main(String[] a) {
 		// Tester haugen ved å sortere verdier i en tabell
-		int[] tab = {300, 10, 30, 2, 100, 33, 1, 200, 18, 54};
+		// int[] tab = {300, 10, 30, 2, 100, 33, 1, 200, 18, 54};
+		int[] tab = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 		System.out.println("Rekkefølge på innlegging av tall:");
 		TabellHaug<Integer> h1 = new TabellHaug<>();
-		for (int i = 0; i < tab.length; i++) {
-			System.out.print(tab[i] + "  ");
-			h1.leggTilElement((tab[i]));
+		for (int j : tab) {
+			System.out.print(j + "  ");
+			h1.leggTilElement(j);
 		}
 		System.out.println();
 
